@@ -11,7 +11,7 @@ conformance fixtures, and the default model catalog.
 ## Contents
 
 - `schemas/` — JSON Schema 2020-12 definitions for normalized chat, stream,
-  error, retrieval, Settings V2, and model catalog data.
+  error, retrieval, Settings, and model catalog data.
 - `fixtures/` — provider-wire input and normalized-output examples that every
   runtime must pass without credentials or network calls.
 - `examples/` — valid canonical `ChatRequest` documents.
@@ -25,7 +25,7 @@ Canonical JSON uses `snake_case`. Runtime APIs may use language-native names,
 with explicit conversion at the contract boundary.
 
 Canonical chat and error envelopes are closed: unknown fields are rejected
-unless they use the `x_` extension prefix. Provider wire payloads, Settings V2,
+unless they use the `x_` extension prefix. Provider wire payloads, Settings,
 catalog entries, and retrieval responses remain open for transport metadata
 and provider fields.
 

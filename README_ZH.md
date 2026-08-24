@@ -8,7 +8,7 @@
 ## 仓库内容
 
 - `schemas/`：基于 JSON Schema 2020-12 的 chat、流式事件、错误、检索、
-  Settings V2 与模型目录契约。
+  Settings 与模型目录契约。
 - `fixtures/`：三种语言均应在无密钥、无网络条件下通过的映射与归一化样例。
 - `examples/`：通过 schema 校验的 canonical `ChatRequest`。
 - `catalog/`：单独修订的默认聊天模型目录快照。
@@ -21,7 +21,7 @@ canonical JSON 统一使用 `snake_case`。各语言 API 可以使用本语言�
 在 contract 边界显式转换。
 
 canonical chat 与 error 外层对象采用严格模式：未知字段必须使用 `x_` 扩展前缀。
-Provider 原始 wire payload、Settings V2、模型目录项和检索响应保持开放，用于
+Provider 原始 wire payload、Settings、模型目录项和检索响应保持开放，用于
 保留 transport metadata 与 provider 字段。
 
 ## Canonical ChatRequest
