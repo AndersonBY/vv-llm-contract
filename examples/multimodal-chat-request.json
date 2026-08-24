@@ -1,0 +1,32 @@
+{
+  "model": "example-vision-model",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Compare these images."
+        },
+        {
+          "type": "image_url",
+          "url": "https://example.com/first.png",
+          "detail": "low",
+          "cache_control": {
+            "type": "ephemeral"
+          }
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "https://example.com/second.png",
+            "detail": "high"
+          }
+        }
+      ]
+    }
+  ],
+  "options": {
+    "max_tokens": 256
+  }
+}

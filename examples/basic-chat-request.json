@@ -1,0 +1,12 @@
+{
+  "model": "example-chat-model",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Reply with one short sentence."
+    }
+  ],
+  "options": {
+    "max_tokens": 128
+  }
+}
