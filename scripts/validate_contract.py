@@ -18,7 +18,7 @@ SCHEMA_DIR = ROOT / "schemas"
 FIXTURE_DIR = ROOT / "fixtures"
 CATALOG_DIR = ROOT / "catalog"
 EXAMPLE_DIR = ROOT / "examples"
-EXPECTED_CONSUMER_LOCK_SHA256 = "4b63dfb29d28212a7e591dad4ccaabdf0ad29940e3eaa80176a59c59b774f0cb"
+EXPECTED_CONSUMER_LOCK_SHA256 = "3407cc7d398885284f32c453a8e71c6dbb2f40a10eb0cc9f2d21a0a7c7dc6b49"
 
 
 class ContractValidationError(RuntimeError):

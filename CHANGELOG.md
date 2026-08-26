@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add the documented `glm-5.3-flash` model capabilities to catalog revision 2.
+
 ## 1.0.1 - 2026-08-24
 
 - Use Settings as the user-facing name for the shared runtime configuration.
