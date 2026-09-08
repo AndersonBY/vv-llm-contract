@@ -90,6 +90,22 @@ class ContractRepositoryTests(unittest.TestCase):
         delta_schema = json.loads((ROOT / "schemas" / "chat-stream-delta.v1.schema.json").read_text(encoding="utf-8"))
         validators.validator_for(delta_schema)(delta_schema).validate({"done": True})
 
+    def test_settings_priority_accepts_valid_values_and_rejects_invalid_values(self) -> None:
+        schema = json.loads((ROOT / "schemas" / "settings.v2.schema.json").read_text(encoding="utf-8"))
+        validator = validators.validator_for(schema)(schema)
+        fixture = json.loads((ROOT / "fixtures" / "settings-resolution.v1.json").read_text(encoding="utf-8"))
+        validator.validate(fixture["settings"])
+        binding = fixture["settings"]["backends"]["deepseek"]["models"]["chat-alias"]["endpoints"][1]
+        self.assertEqual(binding["priority"], 2)
+
+        binding_schema = schema["$defs"]["EndpointBinding"]
+        binding_validator = validators.validator_for(binding_schema)(binding_schema)
+        binding_validator.validate({"endpoint_id": "shared-endpoint"})
+        binding_validator.validate({"endpoint_id": "shared-endpoint", "priority": 1})
+        for invalid_priority in (0, -1, 1.5, "1", True):
+            with self.assertRaises(exceptions.ValidationError):
+                binding_validator.validate({"endpoint_id": "shared-endpoint", "priority": invalid_priority})
+
 
 if __name__ == "__main__":
     unittest.main()

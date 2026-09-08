@@ -1,6 +1,9 @@
 # Changelog
 
-## Unreleased
+## 1.1.0 - 2026-09-08
+
+- Add optional Settings `EndpointBinding.priority`, defaulting to 1 and
+  requiring an integer value greater than or equal to 1.
 
 - Add `gpt-6-astra` with a 1,050,000-token context window, 128,000-token output,
   tool calling, structured output, and image input in catalog revision 3.
