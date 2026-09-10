@@ -1,5 +1,10 @@
 # Changelog
 
+## Catalog revision 4 - 2026-09-10
+
+- Add `deepseek-v4.1-flash` and `deepseek-flash` with the same limits and
+  capabilities as `deepseek-v4-flash-vision-exp`.
+
 ## 1.1.0 - 2026-09-08
 
 - Add optional Settings `EndpointBinding.priority`, defaulting to 1 and
