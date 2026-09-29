@@ -1,5 +1,23 @@
 # Changelog
 
+## Catalog revision 13 - 2026-09-29
+
+- Add `claude-sonnet-5-5` with the 1,000,000 context window, 128,000 max
+  output tokens, tool use, image input, and the `low`, `medium`, `high`,
+  `xhigh`, `max` effort choices.
+
+## Catalog revision 12 - 2026-09-29
+
+- Add `gpt-6-sol` and `gpt-6-luna` with a 1,050,000 context window, 128,000
+  max output tokens, text/image input, tools, structured output, and the
+  `none`, `low`, `medium`, `high`, `xhigh`, `max` effort choices.
+
+## Catalog revision 11 - 2026-09-29
+
+- Add `claude-opus-5-5` with the limits, capabilities, and effort choices of
+  `claude-opus-5`.
+- Add `gemini-3.8-flash` with the limits and capabilities of `gemini-3.7-flash`.
+
 ## 1.2.0 - 2026-09-29
 
 - Add optional model `reasoning_efforts` metadata: omitted/null means unknown,

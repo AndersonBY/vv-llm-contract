@@ -1,8 +1,8 @@
 # Reasoning effort catalog evidence
 
-Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29. Catalog revision: 10.
+Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29. Catalog revision: 13.
 
-The catalog contains 209 models: 41 with documented effort choices, 35 explicitly unsupported, and 133 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
+The catalog contains 214 models: 45 with documented effort choices, 35 explicitly unsupported, and 134 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
 
 `reasoning_efforts` lists effective choices for display and validation. `none`, when present, is an explicit off control, not a reasoning intensity. `reasoning_effort_aliases` records additional documented inputs and their effective target. Aliases are accepted only while their target is in the effective list. Requests preserve the original input for the provider to map. Lists and alias maps on endpoint bindings replace the corresponding model fields.
 
@@ -229,6 +229,8 @@ The ordinary Chat Completion API applies `reasoning_effort` only while `thinking
 | `gpt-5.6-terra` | `none`, `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-5.6-terra) | API values; Codex CLI ultra is an orchestration setting, not a documented API effort. |
 | `gpt-5.6-luna` | `none`, `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-5.6-luna) | API values; Codex CLI ultra is an orchestration setting, not a documented API effort. |
 | `gpt-6-astra` | `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-6-astra) | none is explicitly unsupported. |
+| `gpt-6-sol` | `none`, `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-6-sol) | `max` is Responses API only; live Chat Completions accepted none through xhigh. |
+| `gpt-6-luna` | `none`, `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-6-luna) | `max` is Responses API only; live Chat Completions accepted none through xhigh. |
 
 ### anthropic
 
@@ -250,6 +252,8 @@ The ordinary Chat Completion API applies `reasoning_effort` only while `thinking
 | `claude-fable-5` | `low`, `medium`, `high`, `xhigh`, `max` | — | `anthropic` | Documented choices. |
 | `claude-sonnet-5` | `low`, `medium`, `high`, `xhigh`, `max` | — | `anthropic` | Documented choices. |
 | `claude-opus-5` | `low`, `medium`, `high`, `xhigh`, `max` | — | `anthropic` | Documented choices. |
+| `claude-opus-5-5` | `low`, `medium`, `high`, `xhigh`, `max` | — | `anthropic` | Inherited from `claude-opus-5`; all five values accepted by a live request on 2026-09-29. |
+| `claude-sonnet-5-5` | `low`, `medium`, `high`, `xhigh`, `max` | — | `anthropic` | Documented choices; a live probe accepted all five and rejected `none`. |
 
 ### minimax
 
@@ -281,6 +285,7 @@ The ordinary Chat Completion API applies `reasoning_effort` only while `thinking
 | `gemini-3.1-flash-lite` | `minimal`, `low`, `medium`, `high` | — | `gemini` | OpenAI-compatible values, not native thinking_level values. |
 | `gemini-3.5-flash` | Unknown | — | `gemini` | No verified model-specific effort values. |
 | `gemini-3.7-flash` | Unknown | — | `gemini` | No verified model-specific effort values. |
+| `gemini-3.8-flash` | Unknown | — | `gemini` | No verified model-specific effort values. |
 
 ### ernie
 
