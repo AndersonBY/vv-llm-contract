@@ -45,6 +45,27 @@ Start with [the examples](examples/README.md).
 Each runtime exposes a typed `ChatRequest` API and an explicit canonical JSON
 codec. Method names and streaming return types remain language-specific.
 
+## Reasoning capabilities
+
+Model capabilities may declare `reasoning_efforts` as a list of effective choices
+in display order. Omitted/null means unknown; `[]` means unsupported. This is
+independent of `thinking`, which describes whether reasoning can be enabled or
+disabled. Omitted request `reasoning_effort` uses the provider default; `none` is
+an explicit value and must be supported by the selected model.
+
+Endpoint binding `capabilities` partially override model metadata. Arrays are
+replaced, not combined. Provider adapters own wire conversion and conflict
+checking; these artifacts do not define effort-to-token-budget mappings.
+
+`reasoning_effort_aliases` maps documented compatibility inputs to effective choices.
+Aliases are accepted only when their target remains in `reasoning_efforts`; requests
+retain the original input. Both lists and alias maps on bindings replace inherited
+fields. DeepSeek exposes low/high/max, plus none for off, with minimal → low,
+medium/xhigh → high and ultra → max. Aliases are not extra selectable intensities.
+
+See [the per-model evidence and unknown coverage](docs/reasoning-effort-sources.md).
+
+
 ## Validation
 
 ```text

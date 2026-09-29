@@ -25,6 +25,21 @@ class ContractRepositoryTests(unittest.TestCase):
         self.assertEqual(counts["catalogs"], 1)
         self.assertEqual(counts["examples"], 3)
 
+    def test_reasoning_capabilities_and_shared_cases(self) -> None:
+        schema = json.loads((ROOT / "schemas" / "settings.v2.schema.json").read_text(encoding="utf-8"))
+        capability_schema = schema["$defs"]["ModelCapabilities"]
+        validator = validators.validator_for(capability_schema)(capability_schema)
+        fixture = json.loads((ROOT / "fixtures" / "reasoning-effort.v1.json").read_text(encoding="utf-8"))
+        for case in fixture["capability_cases"]:
+            validator.validate({"reasoning_efforts": case["reasoning_efforts"], "reasoning_effort_aliases": case.get("reasoning_effort_aliases")})
+        for invalid in ([""], [" "], ["high", "high"], "high", [1]):
+            with self.assertRaises(exceptions.ValidationError):
+                validator.validate({"reasoning_efforts": invalid})
+
+        for invalid in ({"": "high"}, {"medium": " "}, {"medium": 1}, ["high"]):
+            with self.assertRaises(exceptions.ValidationError):
+                validator.validate({"reasoning_effort_aliases": invalid})
+
     def test_retry_fixture_is_a_single_source(self) -> None:
         retry = json.loads((ROOT / "fixtures" / "retry-after.v1.json").read_text(encoding="utf-8"))
         openai = json.loads((ROOT / "fixtures" / "openai-compatible.v2.json").read_text(encoding="utf-8"))

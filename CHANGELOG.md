@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.2.0 - 2026-09-29
+
+- Add optional model `reasoning_efforts` metadata: omitted/null means unknown,
+  an empty list means unsupported, and a non-empty list declares effective choices.
+- Add partial capability overrides on model-to-endpoint bindings.
+- Add shared reasoning-effort validation fixtures and catalog revision 10.
+- Add `reasoning_effort_aliases` for documented compatibility inputs; effective
+  choices remain separate from aliases and requests preserve the original input.
+- Record per-model official evidence, explicit unsupported entries and unknown
+  values in `docs/reasoning-effort-sources.md`. DeepSeek has low/high/max and none
+  for off; minimal maps to low, medium/xhigh to high and ultra to max.
+- Align `deepseek-v4.1-flash` effort choices and compatibility aliases with `deepseek-flash`.
+- Declare GLM-5.2 thinking as configurable; retain its off/high/max choices and
+  aliases separately from GLM-5.3/FLASH low/high/max.
+- Exclude the Gemini 3.1 Pro minimal alias after the official live route rejected
+  it, despite the compatibility table mapping it to low.
+
 ## Catalog revision 4 - 2026-09-10
 
 - Add `deepseek-v4.1-flash` and `deepseek-flash` with the same limits and

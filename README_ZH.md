@@ -40,6 +40,20 @@ Provider 原始 wire payload、Settings、模型目录项和检索响应保持�
 各运行时提供 typed `ChatRequest` API 和显式 canonical JSON codec。方法名与流式
 返回类型由各语言运行时定义。
 
+## 推理能力
+
+模型能力中的 `reasoning_efforts` 声明实际选项及显示顺序。省略或 null 表示未知，
+空列表表示不支持；请求省略 `reasoning_effort` 使用服务端默认值，`none` 是显式值。
+此字段与控制推理开关的 `thinking` 独立。
+
+模型与端点绑定中的 `capabilities` 局部覆盖模型能力；数组整体替换。
+协议映射和参数冲突由适配器处理，不把强度自动转换为 token 预算。
+
+`reasoning_effort_aliases` 单独记录兼容输入及其实际目标。只有目标仍在 `reasoning_efforts` 中时才接受别名，请求原值由服务商映射。绑定中的档位列表和别名映射均整体替换。DeepSeek 实际为 low/high/max 三档，none 表示关闭；minimal → low，medium/xhigh → high，ultra → max。兼容别名不作为独立档位展示。
+
+[逐模型依据和待确认项](docs/reasoning-effort-sources.md) 记录官方来源及核实状态。
+
+
 ## 校验
 
 ```text
