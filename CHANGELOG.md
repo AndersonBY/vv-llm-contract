@@ -1,5 +1,11 @@
 # Changelog
 
+## Catalog revision 14 - 2026-09-30
+
+- Add `gpt-6.1-sol` with a 1,050,000 context window, 128,000 max output
+  tokens, text/image input, tools, structured output, and the `low`,
+  `medium`, `high`, `xhigh`, `max` effort choices.
+
 ## Catalog revision 13 - 2026-09-29
 
 - Add `claude-sonnet-5-5` with the 1,000,000 context window, 128,000 max
