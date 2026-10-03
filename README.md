@@ -45,6 +45,32 @@ Start with [the examples](examples/README.md).
 Each runtime exposes a typed `ChatRequest` API and an explicit canonical JSON
 codec. Method names and streaming return types remain language-specific.
 
+## Endpoint model IDs
+
+`qwen3.8-flash-next` is the single public catalog ID. A DashScope binding
+can use `qwen3.8-flash` as its provider model ID:
+
+```json
+{
+  "backends": {
+    "qwen": {
+      "models": {
+        "qwen3.8-flash-next": {
+          "id": "qwen3.8-flash-next",
+          "endpoints": [
+            { "endpoint_id": "dashscope-default", "model_id": "qwen3.8-flash" }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+Configure `dashscope-default` in `endpoints` with local credentials. This binding
+selects the hosted API model; it does not establish equivalence to the open-weight
+checkpoint. Other deployments can bind their own provider model ID.
+
 ## Reasoning capabilities
 
 Model capabilities may declare `reasoning_efforts` as a list of effective choices

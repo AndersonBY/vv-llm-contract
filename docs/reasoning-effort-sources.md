@@ -1,8 +1,8 @@
 # Reasoning effort catalog evidence
 
-Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30. Catalog revision: 14.
+Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03. Catalog revision: 16.
 
-The catalog contains 215 models: 46 with documented effort choices, 35 explicitly unsupported, and 134 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
+The catalog contains 216 models: 47 with documented effort choices, 35 explicitly unsupported, and 134 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
 
 `reasoning_efforts` lists effective choices for display and validation. `none`, when present, is an explicit off control, not a reasoning intensity. `reasoning_effort_aliases` records additional documented inputs and their effective target. Aliases are accepted only while their target is in the effective list. Requests preserve the original input for the provider to map. Lists and alias maps on endpoint bindings replace the corresponding model fields.
 
@@ -14,6 +14,7 @@ These defaults describe official model/API combinations. A deployment alias, pro
 - `anthropic`: [Anthropic effort support table (official indexed documentation; direct access redirects to a regional availability page)](https://platform.claude.com/docs/en/build-with-claude/effort).
 - `deepseek`: [DeepSeek thinking mode and Chat Completion API](https://api-docs.deepseek.com/zh-cn/api/create-chat-completion).
 - `qwen`: [Alibaba Cloud OpenAI-compatible API](https://help.aliyun.com/zh/model-studio/qwen-api-via-openai-chat-completions).
+- `qwen-flash-next`: [Official open-weight model card](https://huggingface.co/Qwen/Qwen3.8-Flash-Next). Native context is 262,144 tokens; extending it to 1M requires deployment configuration. No fixed hosted output limit or structured-output guarantee is inferred for this model.
 - `moonshot`: [Kimi thinking-mode parameter comparison](https://platform.kimi.com/docs/guide/use-kimi-k2-thinking-model).
 - `zhipuai`: [BigModel ordinary API thinking guide](https://docs.bigmodel.cn/cn/guide/capabilities/thinking).
 - `minimax`: [MiniMax OpenAI-compatible API](https://platform.minimax.io/docs/api-reference/text-openai-api).
@@ -141,6 +142,7 @@ These defaults describe official model/API combinations. A deployment alias, pro
 | `qwen3.6-35b-a3b` | Unknown | — | `qwen` | No verified model-specific effort values. |
 | `qwen3.6-27b` | Unknown | — | `qwen` | No verified model-specific effort values. |
 | `qwen3.7-max` | Unknown | — | `qwen` | No verified model-specific effort values. |
+| `qwen3.8-flash-next` | `low`, `medium`, `xhigh` | — | `qwen-flash-next` | Configurable thinking; xhigh is the default. Disable via enable_thinking, nested in chat_template_kwargs for self-hosted frameworks. Hosted none/alias semantics are not inferred for the open-weight ID. |
 | `qwen3.8-max` | `none`, `low`, `medium`, `xhigh` | `minimal` → `low`, `high` → `xhigh`, `max` → `xhigh` | `qwen` | Effective low/medium/xhigh; minimal->low; high/max->xhigh; none disables thinking. Do not combine with thinking_budget. |
 | `qwen3.8-27b` | `none`, `low`, `medium`, `xhigh` | `minimal` → `low`, `high` → `xhigh`, `max` → `xhigh` | `qwen` | Effective low/medium/xhigh; minimal->low; high/max->xhigh; none disables thinking. Do not combine with thinking_budget. |
 

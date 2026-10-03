@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.2.1 - 2026-10-03
+
+- Release catalog revision 16 with the single public model ID
+  `qwen3.8-flash-next` and documented DashScope endpoint mapping.
+
+## Catalog revision 16 - 2026-10-03
+
+- Use `qwen3.8-flash-next` as the sole public catalog key and model ID.
+  DashScope can map it to `qwen3.8-flash` through endpoint `model_id`.
+
+## Catalog revision 15 - 2026-10-03
+
+- Add `Qwen/Qwen3.8-Flash-Next` with a 262,144 native context window,
+  text/image/video input, tools, configurable thinking, and low/medium/xhigh
+  effort choices. Output limits and structured-output support remain unspecified
+  for the open-weight model.
+
 ## Catalog revision 14 - 2026-09-30
 
 - Add `gpt-6.1-sol` with a 1,050,000 context window, 128,000 max output
