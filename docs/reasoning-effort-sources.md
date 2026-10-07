@@ -1,8 +1,8 @@
 # Reasoning effort catalog evidence
 
-Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03. Catalog revision: 16.
+Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03; Gemini 3.7/3.8 Flash checked on 2026-10-07. Catalog revision: 17.
 
-The catalog contains 216 models: 47 with documented effort choices, 35 explicitly unsupported, and 134 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
+The catalog contains 216 models: 49 with documented effort choices, 35 explicitly unsupported, and 132 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
 
 `reasoning_efforts` lists effective choices for display and validation. `none`, when present, is an explicit off control, not a reasoning intensity. `reasoning_effort_aliases` records additional documented inputs and their effective target. Aliases are accepted only while their target is in the effective list. Requests preserve the original input for the provider to map. Lists and alias maps on endpoint bindings replace the corresponding model fields.
 
@@ -18,7 +18,7 @@ These defaults describe official model/API combinations. A deployment alias, pro
 - `moonshot`: [Kimi thinking-mode parameter comparison](https://platform.kimi.com/docs/guide/use-kimi-k2-thinking-model).
 - `zhipuai`: [BigModel ordinary API thinking guide](https://docs.bigmodel.cn/cn/guide/capabilities/thinking).
 - `minimax`: [MiniMax OpenAI-compatible API](https://platform.minimax.io/docs/api-reference/text-openai-api).
-- `gemini`: [Google OpenAI compatibility and thinking documentation](https://ai.google.dev/gemini-api/docs/openai).
+- `gemini`: [Google OpenAI compatibility](https://ai.google.dev/gemini-api/docs/openai) and [supported thinking levels](https://ai.google.dev/gemini-api/docs/thinking).
 - `xai`: [xAI reasoning documentation](https://docs.x.ai/developers/model-capabilities/text/reasoning).
 - `mistral`: [Mistral reasoning documentation](https://docs.mistral.ai/studio/conversations/reasoning).
 - `groq`: [Groq official generated SDK parameter documentation](https://github.com/groq/groq-python/blob/main/src/groq/types/chat/completion_create_params.py).
@@ -287,8 +287,8 @@ The ordinary Chat Completion API applies `reasoning_effort` only while `thinking
 | `gemini-3.1-flash-lite-preview` | Unknown | — | `gemini` | No verified model-specific effort values. |
 | `gemini-3.1-flash-lite` | `minimal`, `low`, `medium`, `high` | — | `gemini` | OpenAI-compatible values, not native thinking_level values. |
 | `gemini-3.5-flash` | Unknown | — | `gemini` | No verified model-specific effort values. |
-| `gemini-3.7-flash` | Unknown | — | `gemini` | No verified model-specific effort values. |
-| `gemini-3.8-flash` | Unknown | — | `gemini` | No verified model-specific effort values. |
+| `gemini-3.7-flash` | `low`, `medium`, `high` | — | `gemini` | Google thinking levels table (2026-10-07); default medium, minimal unsupported. |
+| `gemini-3.8-flash` | `low`, `medium`, `high` | — | `gemini` | Google thinking levels table (2026-10-07); default medium, minimal unsupported. |
 
 ### ernie
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.2 - 2026-10-07
+
+- Release catalog revision 17 with low/medium/high reasoning efforts for Gemini
+  3.7 Flash and 3.8 Flash; minimal is not supported by these models.
+
 ## 1.2.1 - 2026-10-03
 
 - Release catalog revision 16 with the single public model ID
