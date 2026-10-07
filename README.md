@@ -135,3 +135,13 @@ Its SHA-256 is published with the release and recorded by each runtime.
 
 HTTP clients, authentication, retries, middleware, fallback, tokenizers,
 provider SDKs, live tests, and application messages belong to the runtimes.
+
+## Decision contract
+
+`schemas/decision-request.v1.schema.json` and `schemas/decision-response.v1.schema.json`
+define portable decision input, questions, answers and usage. `fixtures/decisions.v1.json`
+covers predicate, choice, score, refusal, explicit zero usage, and invalid payloads.
+`decision_backends` shares the existing endpoint/binding shape. Catalog
+`capabilities.decision_types` lists supported operations; missing/null means unknown
+and an empty list means unsupported. Decision models are selected from the same
+source catalog as chat models.

@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.0 - 2026-10-08
+
+- Add decision request/response v1 schemas and shared predicate, choice, score,
+  refusal, and invalid-payload fixtures.
+- Add decision_backends settings and decision_types capabilities; catalog revision
+  18 declares gpt-6-luna support for all three decision operations.
+
 ## 1.2.2 - 2026-10-07
 
 - Release catalog revision 17 with low/medium/high reasoning efforts for Gemini

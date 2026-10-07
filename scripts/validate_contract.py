@@ -18,7 +18,7 @@ SCHEMA_DIR = ROOT / "schemas"
 FIXTURE_DIR = ROOT / "fixtures"
 CATALOG_DIR = ROOT / "catalog"
 EXAMPLE_DIR = ROOT / "examples"
-EXPECTED_CONSUMER_LOCK_SHA256 = "3c46ac48a35886c03e367e5bab06b31835f5475b72e83bcb7af8f2be4eccfde6"
+EXPECTED_CONSUMER_LOCK_SHA256 = "929679bd43f8092bae4171179cd405f664ae15fab52ce9a88c67e86c6027fdb9"
 
 
 class ContractValidationError(RuntimeError):
@@ -130,8 +130,8 @@ def validate_repository() -> dict[str, int]:
     manifest = load_json(ROOT / "manifest.json")
     if not isinstance(manifest, dict):
         raise ContractValidationError("manifest.json must contain an object")
-    if manifest.get("contract_version") != "1.2.2":
-        raise ContractValidationError("manifest contract_version must be 1.2.2")
+    if manifest.get("contract_version") != "1.3.0":
+        raise ContractValidationError("manifest contract_version must be 1.3.0")
     artifacts = manifest.get("artifacts")
     if not isinstance(artifacts, (dict, list)):
         raise ContractValidationError("manifest artifacts must be an object or array")
@@ -202,6 +202,10 @@ def validate_repository() -> dict[str, int]:
             registry,
             f"normalized stream delta {index}",
         )
+
+    decisions = load_json(FIXTURE_DIR / "decisions.v1.json")
+    for key, schema in (("request", "decision-request.v1.schema.json"), ("response", "decision-response.v1.schema.json"), ("refusal_response", "decision-response.v1.schema.json")):
+        validate_instance(decisions[key], schema, documents, registry, f"decision {key}")
 
     retry_fixture = load_json(FIXTURE_DIR / "retry-after.v1.json")
     validate_instance(

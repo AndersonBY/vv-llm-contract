@@ -93,3 +93,13 @@ python scripts/build_bundle.py
 
 HTTP 客户端、认证、重试、middleware、fallback、tokenizer、provider SDK、真实
 接口测试和业务消息由各运行时负责。
+
+## Decision 契约
+
+`schemas/decision-request.v1.schema.json` 和
+`schemas/decision-response.v1.schema.json` 定义跨语言输入、问题、回答和用量。
+`fixtures/decisions.v1.json` 覆盖 predicate、choice、score、拒答、
+布尔选项、图片输入、零用量及无效请求和响应。
+`decision_backends` 复用现有端点及绑定结构。
+`capabilities.decision_types` 声明支持的操作；缺失或 null 表示未知，
+空列表表示不支持。Decision 模型与聊天模型来自同一份共享目录。
