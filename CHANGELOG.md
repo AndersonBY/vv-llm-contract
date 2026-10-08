@@ -2,10 +2,14 @@
 
 ## 1.3.0 - 2026-10-08
 
+- Add `claude-haiku-5-5` with a 1,000,000-token context window, 128,000 max
+  output tokens, text/image input, tools, configurable thinking, and
+  low/medium/high/xhigh/max effort choices.
+
 - Add decision request/response v1 schemas and shared predicate, choice, score,
   refusal, and invalid-payload fixtures.
 - Add decision_backends settings and decision_types capabilities; catalog revision
-  18 declares gpt-6-luna support for all three decision operations.
+  19 declares gpt-6-luna support for all three decision operations.
 
 ## 1.2.2 - 2026-10-07
 

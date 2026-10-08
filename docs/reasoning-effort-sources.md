@@ -1,8 +1,8 @@
 # Reasoning effort catalog evidence
 
-Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03; Gemini 3.7/3.8 Flash checked on 2026-10-07. Catalog revision: 17.
+Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03; Gemini 3.7/3.8 Flash checked on 2026-10-07. Haiku 5.5 checked on 2026-10-08. Catalog revision: 19.
 
-The catalog contains 216 models: 49 with documented effort choices, 35 explicitly unsupported, and 132 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
+The catalog contains 217 models: 50 with documented effort choices, 35 explicitly unsupported, and 132 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
 
 `reasoning_efforts` lists effective choices for display and validation. `none`, when present, is an explicit off control, not a reasoning intensity. `reasoning_effort_aliases` records additional documented inputs and their effective target. Aliases are accepted only while their target is in the effective list. Requests preserve the original input for the provider to map. Lists and alias maps on endpoint bindings replace the corresponding model fields.
 
@@ -12,6 +12,7 @@ These defaults describe official model/API combinations. A deployment alias, pro
 
 - `openai`: [OpenAI reasoning/model documentation](https://developers.openai.com/api/docs/guides/reasoning).
 - `anthropic`: [Anthropic effort support table (official indexed documentation; direct access redirects to a regional availability page)](https://platform.claude.com/docs/en/build-with-claude/effort).
+- `anthropic-haiku-55`: [Haiku 5.5 overview](https://platform.claude.com/docs/en/models/haiku-5-5/overview), [migration guide](https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide), and [effort support](https://platform.claude.com/docs/en/build-with-claude/effort). Released 2026-10-07; 1M context, 128K maximum output, text/image input, tools and adaptive thinking. Temperature, top_p, top_k and manual budget_tokens are rejected. On the Claude API, native structured outputs use output_config.format; the existing runtime response_format flag remains false because the Anthropic adapters do not translate that OpenAI-style field. Input/output pricing is $0.10/$0.50 per million tokens for prompts up to 100K, and $0.50/$2.50 above 100K.
 - `deepseek`: [DeepSeek thinking mode and Chat Completion API](https://api-docs.deepseek.com/zh-cn/api/create-chat-completion).
 - `qwen`: [Alibaba Cloud OpenAI-compatible API](https://help.aliyun.com/zh/model-studio/qwen-api-via-openai-chat-completions).
 - `qwen-flash-next`: [Official open-weight model card](https://huggingface.co/Qwen/Qwen3.8-Flash-Next). Native context is 262,144 tokens; extending it to 1M requires deployment configuration. No fixed hosted output limit or structured-output guarantee is inferred for this model.
@@ -257,6 +258,7 @@ The ordinary Chat Completion API applies `reasoning_effort` only while `thinking
 | `claude-opus-5` | `low`, `medium`, `high`, `xhigh`, `max` | — | `anthropic` | Documented choices. |
 | `claude-opus-5-5` | `low`, `medium`, `high`, `xhigh`, `max` | — | `anthropic` | Inherited from `claude-opus-5`; all five values accepted by a live request on 2026-09-29. |
 | `claude-sonnet-5-5` | `low`, `medium`, `high`, `xhigh`, `max` | — | `anthropic` | Documented choices; a live probe accepted all five and rejected `none`. |
+| `claude-haiku-5-5` | `low`, `medium`, `high`, `xhigh`, `max` | — | `anthropic-haiku-55` | Default medium; disabled thinking requires high or lower. A Python/Bedrock global-profile probe accepted all five, verified disabled/high, chat, streaming and tools, and rejected an invalid effort with HTTP 400. |
 
 ### minimax
 
