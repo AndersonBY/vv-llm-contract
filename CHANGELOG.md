@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.1 - 2026-10-14
+
+- Add `gemini-4-argon` with a unified 1,048,576-token context, 65,536-token
+  synchronous output limit, text/image/video/audio input, tools, structured
+  output, and low/medium/high reasoning efforts.
+- Release catalog revision 20; schemas and fixtures are unchanged.
+
 ## 1.3.0 - 2026-10-08
 
 - Add `claude-haiku-5-5` with a 1,000,000-token context window, 128,000 max
