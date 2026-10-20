@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.2 - 2026-10-20
+
+- Add `MiniMax-M3.1-Flash` with a 1,000,000-token context window, 512,000
+  max output tokens, text/image/video input, tools, mandatory thinking, and
+  low/medium/high/xhigh/max reasoning efforts. Structured output is
+  explicitly unsupported.
+
 ## 1.3.1 - 2026-10-14
 
 - Add `gemini-4-argon` with a unified 1,048,576-token context, 65,536-token

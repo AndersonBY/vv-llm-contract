@@ -1,8 +1,8 @@
 # Reasoning effort catalog evidence
 
-Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03; Gemini 3.7/3.8 Flash checked on 2026-10-07. Haiku 5.5 checked on 2026-10-08. Gemini 4 Argon checked on 2026-10-14. Catalog revision: 20.
+Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03; Gemini 3.7/3.8 Flash checked on 2026-10-07. Haiku 5.5 checked on 2026-10-08. Gemini 4 Argon checked on 2026-10-14. MiniMax M3.1 Flash checked on 2026-10-20. Catalog revision: 21.
 
-The catalog contains 218 models: 51 with documented effort choices, 35 explicitly unsupported, and 132 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
+The catalog contains 219 models: 52 with documented effort choices, 35 explicitly unsupported, and 132 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
 
 `reasoning_efforts` lists effective choices for display and validation. `none`, when present, is an explicit off control, not a reasoning intensity. `reasoning_effort_aliases` records additional documented inputs and their effective target. Aliases are accepted only while their target is in the effective list. Requests preserve the original input for the provider to map. Lists and alias maps on endpoint bindings replace the corresponding model fields.
 
@@ -18,7 +18,7 @@ These defaults describe official model/API combinations. A deployment alias, pro
 - `qwen-flash-next`: [Official open-weight model card](https://huggingface.co/Qwen/Qwen3.8-Flash-Next). Native context is 262,144 tokens; extending it to 1M requires deployment configuration. No fixed hosted output limit or structured-output guarantee is inferred for this model.
 - `moonshot`: [Kimi thinking-mode parameter comparison](https://platform.kimi.com/docs/guide/use-kimi-k2-thinking-model).
 - `zhipuai`: [BigModel ordinary API thinking guide](https://docs.bigmodel.cn/cn/guide/capabilities/thinking).
-- `minimax`: [MiniMax OpenAI-compatible API](https://platform.minimax.io/docs/api-reference/text-openai-api).
+- `minimax`: [MiniMax OpenAI-compatible API](https://platform.minimax.io/docs/api-reference/text-openai-api). M3.1 Flash was released on 2026-10-19 with a 1M context window, a 524,288-token documented output ceiling in downstream API catalogs, text/image/video input, tools, mandatory thinking, and low/medium/high/xhigh/max reasoning efforts. The catalog uses a 512,000-token output limit to match MiniMax's decimal 1M context convention.
 - `gemini`: [Google OpenAI compatibility](https://ai.google.dev/gemini-api/docs/openai) and [supported thinking levels](https://ai.google.dev/gemini-api/docs/thinking).
 - `xai`: [xAI reasoning documentation](https://docs.x.ai/developers/model-capabilities/text/reasoning).
 - `mistral`: [Mistral reasoning documentation](https://docs.mistral.ai/studio/conversations/reasoning).
@@ -264,14 +264,15 @@ The ordinary Chat Completion API applies `reasoning_effort` only while `thinking
 
 | Model | Effective choices | Compatibility inputs | Evidence | Qualification |
 | --- | --- | --- | --- | --- |
-| `MiniMax-M2.1` | Unsupported (`[]`) | — | `minimax` | Effort is effective only for MiniMax-M3.1-Flash-Preview; that model is not in this catalog. |
+| `MiniMax-M2.1` | Unsupported (`[]`) | — | `minimax` | Reasoning effort is supported only by `MiniMax-M3.1-Flash`. |
 | `MiniMax-M2.1-lightning` | Unknown | — | `minimax` | No verified model-specific effort values. |
-| `MiniMax-M2.1-highspeed` | Unsupported (`[]`) | — | `minimax` | Effort is effective only for MiniMax-M3.1-Flash-Preview; that model is not in this catalog. |
-| `MiniMax-M2.5` | Unsupported (`[]`) | — | `minimax` | Effort is effective only for MiniMax-M3.1-Flash-Preview; that model is not in this catalog. |
-| `MiniMax-M2.5-highspeed` | Unsupported (`[]`) | — | `minimax` | Effort is effective only for MiniMax-M3.1-Flash-Preview; that model is not in this catalog. |
-| `MiniMax-M2.7` | Unsupported (`[]`) | — | `minimax` | Effort is effective only for MiniMax-M3.1-Flash-Preview; that model is not in this catalog. |
-| `MiniMax-M3` | Unsupported (`[]`) | — | `minimax` | Effort is effective only for MiniMax-M3.1-Flash-Preview; that model is not in this catalog. |
-| `MiniMax-M2.7-highspeed` | Unsupported (`[]`) | — | `minimax` | Effort is effective only for MiniMax-M3.1-Flash-Preview; that model is not in this catalog. |
+| `MiniMax-M2.1-highspeed` | Unsupported (`[]`) | — | `minimax` | Reasoning effort is supported only by `MiniMax-M3.1-Flash`. |
+| `MiniMax-M2.5` | Unsupported (`[]`) | — | `minimax` | Reasoning effort is supported only by `MiniMax-M3.1-Flash`. |
+| `MiniMax-M2.5-highspeed` | Unsupported (`[]`) | — | `minimax` | Reasoning effort is supported only by `MiniMax-M3.1-Flash`. |
+| `MiniMax-M2.7` | Unsupported (`[]`) | — | `minimax` | Reasoning effort is supported only by `MiniMax-M3.1-Flash`. |
+| `MiniMax-M3` | Unsupported (`[]`) | — | `minimax` | Reasoning effort is supported only by `MiniMax-M3.1-Flash`. |
+| `MiniMax-M3.1-Flash` | `low`, `medium`, `high`, `xhigh`, `max` | — | `minimax` | Documented choices; thinking is always enabled and `none` is rejected. |
+| `MiniMax-M2.7-highspeed` | Unsupported (`[]`) | — | `minimax` | Reasoning effort is supported only by `MiniMax-M3.1-Flash`. |
 
 ### gemini
 
