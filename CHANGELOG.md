@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.3 - 2026-10-24
+
+- Release shared contract 1.3.3 and catalog revision 22 with `kimi-k3.1-pro`: 1,048,576-token
+  context and maximum output, text/image/video input, tools, strict JSON Schema
+  output, always-on thinking, and low/high/max reasoning efforts.
+
 ## 1.3.2 - 2026-10-20
 
 - Add `MiniMax-M3.1-Flash` with a 1,000,000-token context window, 512,000

@@ -1,14 +1,16 @@
 # Reasoning effort catalog evidence
 
-Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03; Gemini 3.7/3.8 Flash checked on 2026-10-07. Haiku 5.5 checked on 2026-10-08. Gemini 4 Argon checked on 2026-10-14. MiniMax M3.1 Flash checked on 2026-10-20. Catalog revision: 21.
+Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03; Gemini 3.7/3.8 Flash checked on 2026-10-07. Haiku 5.5 checked on 2026-10-08. Gemini 4 Argon checked on 2026-10-14. MiniMax M3.1 Flash checked on 2026-10-20. Kimi K3.1 Pro checked on 2026-10-24. Catalog revision: 22.
 
-The catalog contains 219 models: 52 with documented effort choices, 35 explicitly unsupported, and 132 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
+The catalog contains 220 models: 53 with documented effort choices, 35 explicitly unsupported, and 132 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
 
 `reasoning_efforts` lists effective choices for display and validation. `none`, when present, is an explicit off control, not a reasoning intensity. `reasoning_effort_aliases` records additional documented inputs and their effective target. Aliases are accepted only while their target is in the effective list. Requests preserve the original input for the provider to map. Lists and alias maps on endpoint bindings replace the corresponding model fields.
 
 These defaults describe official model/API combinations. A deployment alias, proxy, Coding Plan, Bedrock or Vertex route can differ and should use binding capabilities. HTTP 200 proves that a request was accepted; it does not prove that a parameter was honored. See the Python runtime live report for response observations and unavailable routes.
 
 ## Sources
+
+- `moonshot-k31-pro`: [Kimi K3.1 Pro guide](https://platform.kimi.com/docs/guide/kimi-k3-1-pro-quickstart), [model parameter reference](https://platform.kimi.com/docs/api/models-overview).
 
 - `openai`: [OpenAI reasoning/model documentation](https://developers.openai.com/api/docs/guides/reasoning).
 - `anthropic`: [Anthropic effort support table (official indexed documentation; direct access redirects to a regional availability page)](https://platform.claude.com/docs/en/build-with-claude/effort).
@@ -51,6 +53,7 @@ These defaults describe official model/API combinations. A deployment alias, pro
 | `kimi-k2.6` | Unsupported (`[]`) | — | `moonshot` | The model parameter comparison explicitly marks reasoning_effort unsupported. |
 | `kimi-k2.7-code` | Unsupported (`[]`) | — | `moonshot` | The model parameter comparison explicitly marks reasoning_effort unsupported. |
 | `kimi-k3` | `low`, `high`, `max` | — | `moonshot` | Documented choices. |
+| `kimi-k3.1-pro` | `low`, `high`, `max` | — | `moonshot-k31-pro` | Always-on thinking; default max. 1,048,576-token context and maximum output; text/image/video input, tools and strict JSON Schema output. |
 
 ### deepseek
 
