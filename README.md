@@ -145,3 +145,23 @@ covers predicate, choice, score, refusal, explicit zero usage, and invalid paylo
 `capabilities.decision_types` lists supported operations; missing/null means unknown
 and an empty list means unsupported. Decision models are selected from the same
 source catalog as chat models.
+
+## Streaming tool-call identity coverage
+
+The OpenAI-compatible fixture includes sparse, reordered, and singleton nonzero
+provider tool-call indices. These indices are preserved, not replaced by each
+chunk's array position; an explicit zero is not a missing index. This fixture
+uses full `id` and `name` on each tool delta to remain valid under the current
+canonical schema.
+
+**Known boundary:** `chat-stream-delta.v1` requires nonempty `id` and `name`.
+Real provider continuation chunks may carry only `index` and argument fragments;
+the current canonical schema cannot represent them. Runtime-native regression
+tests must cover those chunks separately. Supporting partial identity in the
+canonical shape needs a new schema version and coordinated major release, not
+an in-place relaxation of v1. Missing both index and ID in an interleaved stream
+is ambiguous; positional compatibility fallback does not recover lost identity.
+
+Consumers adopt the tagged release only after validating its actual bundle and
+external consumer-lock SHA pin. A local checkout or version string alone does
+not establish that publication or consumer deployment has succeeded.
