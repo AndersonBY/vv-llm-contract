@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.3.4 - 2026-11-01
+
+- Strengthen the existing OpenAI-compatible stream fixture with sparse,
+  reordered, and single nonzero provider tool-call indices. This catches
+  chunk-local positional renumbering without changing canonical shapes or
+  normalization rules. Schema/fixture format versions and catalog are unchanged.
+- Record the current canonical stream schema's partial-identity limitation;
+  resolving that limitation requires a separately coordinated major release.
+
 ## 1.3.3 - 2026-10-24
 
 - Release shared contract 1.3.3 and catalog revision 22 with `kimi-k3.1-pro`: 1,048,576-token

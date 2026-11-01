@@ -18,6 +18,22 @@ SPEC.loader.exec_module(VALIDATOR)
 
 
 class ContractRepositoryTests(unittest.TestCase):
+    def test_stream_fixture_preserves_provider_indices(self) -> None:
+        fixture = json.loads((ROOT / "fixtures" / "openai-compatible.v2.json").read_text(encoding="utf-8"))
+        stream = fixture["stream_case"]
+        sequences = []
+        for raw, expected in zip(stream["raw_chunks"], stream["expected_deltas"], strict=True):
+            if not raw["choices"]:
+                continue
+            calls = raw["choices"][0]["delta"].get("tool_calls", [])
+            if calls:
+                indices = [call["index"] for call in calls]
+                self.assertEqual(indices, [call["index"] for call in expected["tool_calls"]])
+                sequences.append(indices)
+        self.assertIn([0, 7], sequences)
+        self.assertIn([7, 0], sequences)
+        self.assertIn([7], sequences)
+
     def test_repository_validates(self) -> None:
         counts = VALIDATOR.validate_repository()
         self.assertGreaterEqual(counts["schemas"], 8)

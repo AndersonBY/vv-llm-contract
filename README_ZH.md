@@ -103,3 +103,17 @@ HTTP 客户端、认证、重试、middleware、fallback、tokenizer、provider 
 `decision_backends` 复用现有端点及绑定结构。
 `capabilities.decision_types` 声明支持的操作；缺失或 null 表示未知，
 空列表表示不支持。Decision 模型与聊天模型来自同一份共享目录。
+
+## 流式工具调用身份覆盖
+
+OpenAI 兼容 fixture 覆盖稀疏、乱序及单独出现的非零工具调用 index；
+保留 provider 的 index，不按每个 chunk 的数组位置重编号，显式 0 不等于缺失。
+为保持当前 schema 合法，每个工具 delta 都提供完整的 id/name。
+
+**已知边界：** `chat-stream-delta.v1` 要求非空 id/name，不能表达真实 provider
+仅携带 index 和参数片段的续片。运行时必须单独做原生流回归；规范支持部分身份
+需要新 schema 与协调后的 major 版本，不能在 v1 中静默放宽。交错流同时缺失
+index 和 ID 时存在歧义，按位置兼容回退不能恢复已丢失的身份。
+
+消费者应在验证实际 tagged release bundle 和外部 consumer-lock SHA pin 后采用。
+仅有本地工作树或版本字符串不代表发布或运行时部署已成功。
