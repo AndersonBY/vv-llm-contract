@@ -1,8 +1,8 @@
 # Reasoning effort catalog evidence
 
-Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03; Gemini 3.7/3.8 Flash checked on 2026-10-07. Haiku 5.5 checked on 2026-10-08. Gemini 4 Argon checked on 2026-10-14. MiniMax M3.1 Flash checked on 2026-10-20. Kimi K3.1 Pro checked on 2026-10-24. Catalog revision: 22.
+Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03; Gemini 3.7/3.8 Flash checked on 2026-10-07. Haiku 5.5 checked on 2026-10-08. Gemini 4 Argon checked on 2026-10-14. MiniMax M3.1 Flash checked on 2026-10-20. Kimi K3.1 Pro checked on 2026-10-24. GPT-6.1 Terra checked on 2026-11-10. Catalog revision: 23.
 
-The catalog contains 220 models: 53 with documented effort choices, 35 explicitly unsupported, and 132 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
+The catalog contains 221 models: 54 with documented effort choices, 35 explicitly unsupported, and 132 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
 
 `reasoning_efforts` lists effective choices for display and validation. `none`, when present, is an explicit off control, not a reasoning intensity. `reasoning_effort_aliases` records additional documented inputs and their effective target. Aliases are accepted only while their target is in the effective list. Requests preserve the original input for the provider to map. Lists and alias maps on endpoint bindings replace the corresponding model fields.
 
@@ -238,6 +238,7 @@ The ordinary Chat Completion API applies `reasoning_effort` only while `thinking
 | `gpt-6-sol` | `none`, `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-6-sol) | `max` is Responses API only; live Chat Completions accepted none through xhigh. |
 | `gpt-6-luna` | `none`, `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-6-luna) | `max` is Responses API only; live Chat Completions accepted none through xhigh. |
 | `gpt-6.1-sol` | `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-6.1-sol) | `none`/`minimal` unsupported; `max` and tool calling are Responses API only. Live Chat Completions accepted low through xhigh. |
+| `gpt-6.1-terra` | `none`, `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-6.1-terra) | Default effort is medium; tool calling requires the Responses API. |
 
 ### anthropic
 
