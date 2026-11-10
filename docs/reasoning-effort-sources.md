@@ -1,8 +1,8 @@
 # Reasoning effort catalog evidence
 
-Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03; Gemini 3.7/3.8 Flash checked on 2026-10-07. Haiku 5.5 checked on 2026-10-08. Gemini 4 Argon checked on 2026-10-14. MiniMax M3.1 Flash checked on 2026-10-20. Kimi K3.1 Pro checked on 2026-10-24. GPT-6.1 Terra checked on 2026-11-10. Catalog revision: 23.
+Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03; Gemini 3.7/3.8 Flash checked on 2026-10-07. Haiku 5.5 checked on 2026-10-08. Gemini 4 Argon checked on 2026-10-14. MiniMax M3.1 Flash checked on 2026-10-20. Kimi K3.1 Pro checked on 2026-10-24. GPT-6.1 Terra checked on 2026-11-10. Gemini 4 Carbon checked on 2026-11-11. Catalog revision: 24.
 
-The catalog contains 221 models: 54 with documented effort choices, 35 explicitly unsupported, and 132 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
+The catalog contains 222 models: 55 with documented effort choices, 35 explicitly unsupported, and 132 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
 
 `reasoning_efforts` lists effective choices for display and validation. `none`, when present, is an explicit off control, not a reasoning intensity. `reasoning_effort_aliases` records additional documented inputs and their effective target. Aliases are accepted only while their target is in the effective list. Requests preserve the original input for the provider to map. Lists and alias maps on endpoint bindings replace the corresponding model fields.
 
@@ -297,6 +297,7 @@ The ordinary Chat Completion API applies `reasoning_effort` only while `thinking
 | `gemini-3.7-flash` | `low`, `medium`, `high` | — | `gemini` | Google thinking levels table (2026-10-07); default medium, minimal unsupported. |
 | `gemini-3.8-flash` | `low`, `medium`, `high` | — | `gemini` | Google thinking levels table (2026-10-07); default medium, minimal unsupported. |
 | `gemini-4-argon` | `low`, `medium`, `high` | — | `gemini` | [Model](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon) and OpenAI compatibility table (2026-10-14); default medium. The official route rejected minimal (HTTP 400), so its documented alias is excluded. Thinking on/off behavior remains unspecified; accepting none does not establish that thinking is disabled. The 65,536 output cap describes synchronous requests; long decode requires a separate native continuation/background flow. |
+| `gemini-4-carbon` | `low`, `medium`, `high` | — | `gemini` | [Model](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/4-carbon) and developer guide (2026-11-10); default medium, `minimal` and `thinking_budget` return HTTP 400. Thinking on/off behavior remains unspecified. The 65,536 output cap describes single-segment synchronous/streaming requests and default output budget; long decode up to 1,048,576 tokens requires native continuation or background execution. |
 
 ### ernie
 
