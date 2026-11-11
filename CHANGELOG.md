@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.7 - 2026-11-11
+
+- Add `claude-fable-5-2` with a 1,000,000-token context, 128,000-token maximum
+  output, text/image input, tools, always-on adaptive thinking, and
+  low/medium/high/xhigh/max reasoning efforts.
+- Advance catalog revision to 25; schemas and fixtures are unchanged.
+
 ## 1.3.6 - 2026-11-11
 
 - Add `gemini-4-carbon` with a unified 1,048,576-token context, 65,536-token
