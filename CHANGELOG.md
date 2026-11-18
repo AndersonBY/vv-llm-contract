@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.3.8 - 2026-11-18
+
+- Add `gpt-6.2-astra` and `gpt-6.2-sol` with 1,050,000-token context,
+  128,000-token maximum output, text/image input, tools, structured output,
+  and `low`, `medium`, `high`, `xhigh`, and `max` reasoning efforts.
+- Advance catalog revision to 26; schemas and fixtures are unchanged.
+
+## Catalog revision 26 - 2026-11-18
+
+- Add `gpt-6.2-astra` and `gpt-6.2-sol` with 1,050,000-token context,
+  128,000-token maximum output, text/image input, tools, structured output,
+  and `low`, `medium`, `high`, `xhigh`, and `max` reasoning efforts.
+- The OpenAI API explicitly rejects `none` for both models.
+
 ## 1.3.7 - 2026-11-11
 
 - Add `claude-fable-5-2` with a 1,000,000-token context, 128,000-token maximum

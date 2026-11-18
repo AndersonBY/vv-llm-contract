@@ -1,8 +1,8 @@
 # Reasoning effort catalog evidence
 
-Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03; Gemini 3.7/3.8 Flash checked on 2026-10-07. Haiku 5.5 checked on 2026-10-08. Gemini 4 Argon checked on 2026-10-14. MiniMax M3.1 Flash checked on 2026-10-20. Kimi K3.1 Pro checked on 2026-10-24. GPT-6.1 Terra checked on 2026-11-10. Gemini 4 Carbon and Claude Fable 5.2 checked on 2026-11-11. Catalog revision: 25.
+Verified against official documentation on 2026-09-28; BigModel conditions rechecked on 2026-09-29; GPT-6.1 Sol checked on 2026-09-30; Qwen 3.8 Flash-Next checked on 2026-10-03; Gemini 3.7/3.8 Flash checked on 2026-10-07. Haiku 5.5 checked on 2026-10-08. Gemini 4 Argon checked on 2026-10-14. MiniMax M3.1 Flash checked on 2026-10-20. Kimi K3.1 Pro checked on 2026-10-24. GPT-6.1 Terra checked on 2026-11-10. Gemini 4 Carbon and Claude Fable 5.2 checked on 2026-11-11. GPT-6.2 Astra and Sol checked on 2026-11-18. Catalog revision: 26.
 
-The catalog contains 223 models: 56 with documented effort choices, 35 explicitly unsupported, and 132 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
+The catalog contains 225 models: 58 with documented effort choices, 35 explicitly unsupported, and 132 without verified model-specific values. Unknown entries remain omitted/null; they are not guessed from a model name or from thinking support.
 
 `reasoning_efforts` lists effective choices for display and validation. `none`, when present, is an explicit off control, not a reasoning intensity. `reasoning_effort_aliases` records additional documented inputs and their effective target. Aliases are accepted only while their target is in the effective list. Requests preserve the original input for the provider to map. Lists and alias maps on endpoint bindings replace the corresponding model fields.
 
@@ -240,6 +240,8 @@ The ordinary Chat Completion API applies `reasoning_effort` only while `thinking
 | `gpt-6-luna` | `none`, `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-6-luna) | `max` is Responses API only; live Chat Completions accepted none through xhigh. |
 | `gpt-6.1-sol` | `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-6.1-sol) | `none`/`minimal` unsupported; `max` and tool calling are Responses API only. Live Chat Completions accepted low through xhigh. |
 | `gpt-6.1-terra` | `none`, `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-6.1-terra) | Default effort is medium; tool calling requires the Responses API. |
+| `gpt-6.2-astra` | `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-6.2-astra) | `none` is explicitly rejected; 1.05M context, 128K max output, text/image input, and Responses API tools. |
+| `gpt-6.2-sol` | `low`, `medium`, `high`, `xhigh`, `max` | — | [model reference](https://developers.openai.com/api/docs/models/gpt-6.2-sol) | `none` is explicitly rejected; 1.05M context, 128K max output, text/image input, and Responses API tools. |
 
 ### anthropic
 
