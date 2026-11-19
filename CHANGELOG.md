@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.3.10 - 2026-11-20
+
+- Add `gemini-4-hydrogen` with a unified 1,048,576-token input/output limit,
+  1,048,576-token maximum output for long decodes, text/image/video/audio
+  input, tools, structured output, and low/medium/high/xhigh reasoning efforts.
+- Advance catalog revision to 28; schemas and fixtures are unchanged.
+
 ## 1.3.9 - 2026-11-19
 
 - Add `gemini-4-neon` with a unified 1,048,576-token input/output limit,

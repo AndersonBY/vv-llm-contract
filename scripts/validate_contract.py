@@ -18,7 +18,7 @@ SCHEMA_DIR = ROOT / "schemas"
 FIXTURE_DIR = ROOT / "fixtures"
 CATALOG_DIR = ROOT / "catalog"
 EXAMPLE_DIR = ROOT / "examples"
-EXPECTED_CONSUMER_LOCK_SHA256 = "3c53070186c4146f55dc1e8311be7ece44fd5c327cef649b696eae0f7e87380a"
+EXPECTED_CONSUMER_LOCK_SHA256 = "8a5dcf6fb8377f7790a0084fd64686f288f35ff2061533793d84fce31519bad4"
 
 
 class ContractValidationError(RuntimeError):
@@ -130,8 +130,8 @@ def validate_repository() -> dict[str, int]:
     manifest = load_json(ROOT / "manifest.json")
     if not isinstance(manifest, dict):
         raise ContractValidationError("manifest.json must contain an object")
-    if manifest.get("contract_version") != "1.3.9":
-        raise ContractValidationError("manifest contract_version must be 1.3.9")
+    if manifest.get("contract_version") != "1.3.10":
+        raise ContractValidationError("manifest contract_version must be 1.3.10")
     artifacts = manifest.get("artifacts")
     if not isinstance(artifacts, (dict, list)):
         raise ContractValidationError("manifest artifacts must be an object or array")
